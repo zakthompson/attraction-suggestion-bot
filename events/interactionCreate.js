@@ -59,7 +59,11 @@ async function handleModalSubmit(interaction) {
       if (image) embed.setImage(image);
     }
 
-    await interaction.reply({ embeds: [embed] });
+    const response = await interaction.reply({
+      embeds: [embed],
+      withResponse: true,
+    });
+    response.resource.message.react('😍');
   }
 }
 
